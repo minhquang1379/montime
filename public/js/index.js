@@ -3202,7 +3202,7 @@ __webpack_require__.r(__webpack_exports__);
 
 function NotFound() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-    children: "Not Found"
+    children: "ok"
   });
 }
 
