@@ -11,9 +11,7 @@ function App() {
         <Suspense fallback={<div>Loading....</div>}>
             <BrowserRouter>
                 <Switch>
-                    {/* <Redirect exact from="/" to="/login" /> */}
                     <Route path="/" component={Guest} />
-                    {/* <Route path="/app" component={Login} /> */}
                     <Route path="*" component={NotFound} />
                 </Switch>
             </BrowserRouter>

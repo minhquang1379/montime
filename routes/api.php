@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ProjectTypeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,6 +18,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
+
+    // PROJECT TYPE
+    Route::get('/project-type/list', [ProjectTypeController::class, 'getList'])->name('project.type.list');
 });
 
 Route::post('/login', [AuthController::class, 'login'])->name('auth.login');

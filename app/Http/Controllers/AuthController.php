@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
@@ -32,6 +32,8 @@ class AuthController extends Controller
                     'status_code' => 200,
                     'access_token' => $tokenResult,
                     'token_type' => 'Bearer',
+                    'name' => $user->name,
+                    'email' => $user->email
                 ]);
             }
             return response()->json([

@@ -1,5 +1,10 @@
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { toast } from "react-toast";
 import { Card, CardBody, CardTitle, Col, Row } from "reactstrap";
+import { signin } from "../../../actions/userActions";
+import MessageBox from "../../Common/MessageBox/MessageBox";
 import LoginForm from "./components/LoginForm";
 
 function Login() {
@@ -8,10 +13,18 @@ function Login() {
         password: "",
     };
 
-    const handleSubmit = (values) => {
-        console.log(values);
-    };
+    const userSignin = useSelector((state) => state.userSignin);
+    const { userInfo, loading, error } = userSignin;
+    const dispatch = useDispatch();
 
+    const handleSubmit = (values) => {
+        const { email, password } = values;
+        dispatch(signin(email, password));
+    };
+    useEffect(() => {
+        if (userInfo) {
+        }
+    }, [userInfo]);
     return (
         <>
             <Row className="justify-content-center slide-in-left ">
@@ -24,9 +37,15 @@ function Login() {
                             >
                                 Login
                             </CardTitle>
+                            {error && (
+                                <MessageBox variant="danger">
+                                    {error}
+                                </MessageBox>
+                            )}
                             <LoginForm
                                 initialValues={initialValues}
                                 onSubmit={handleSubmit}
+                                loading={loading}
                             ></LoginForm>
                         </CardBody>
                     </Card>

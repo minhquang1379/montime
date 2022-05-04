@@ -6,14 +6,16 @@ import InputField from "../../../../custom-field/InputField";
 
 LoginForm.propTypes = {
     onSubmit: PropTypes.func,
+    loading: PropTypes.bool,
 };
 
 LoginForm.defaultProps = {
-    onsuonSubmitbmit: null,
+    onSubmit: null,
+    loading: false,
 };
 
 function LoginForm(props) {
-    const { initialValues } = props;
+    const { initialValues, loading } = props;
     const validationSchema = Yup.object().shape({
         email: Yup.string().email().required("Email is required"),
         password: Yup.string().required("Password is required"),
@@ -27,7 +29,6 @@ function LoginForm(props) {
         >
             {(formikProps) => {
                 const { values, errors, touched, isSubmitting } = formikProps;
-                console.log({ values, errors, touched });
                 return (
                     <Form>
                         <FastField
@@ -45,7 +46,7 @@ function LoginForm(props) {
                         />
                         <FormGroup className="text-center">
                             <Button type="submit" color="success">
-                                {isSubmitting && <Spinner size="sm" />}
+                                {loading && <Spinner size="sm" />}
                                 Login
                             </Button>
                         </FormGroup>
