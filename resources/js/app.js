@@ -4,14 +4,14 @@ import { Switch } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
 
 import NotFound from "./components/Common/NotFound/NotFound";
-import Guest from "./components/Guest";
+import Home from "./components/Home";
 
 function App() {
     return (
         <Suspense fallback={<div>Loading....</div>}>
             <BrowserRouter>
                 <Switch>
-                    <Route path="/" component={Guest} />
+                    <Route path="/" component={Home} />
                     <Route path="*" component={NotFound} />
                 </Switch>
             </BrowserRouter>

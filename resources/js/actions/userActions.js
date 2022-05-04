@@ -2,6 +2,7 @@ import {
     USER_SIGNIN_FAIL,
     USER_SIGNIN_REQUEST,
     USER_SIGNIN_SUCCESS,
+    USER_SIGNOUT,
 } from "../constant/userConstant";
 import authApi from "../api/authApi";
 
@@ -32,4 +33,12 @@ export const signin = (email, password) => async (dispatch) => {
                     : error.message,
         });
     }
+};
+
+export const signout = () => (dispatch) => {
+    dispatch({ type: USER_SIGNOUT });
+
+    localStorage.removeItem("userInfo");
+
+    document.location.href = "/welcome";
 };

@@ -47,7 +47,7 @@ function LoginForm(props) {
                         <FormGroup className="text-center">
                             <Button type="submit" color="success">
                                 {loading && <Spinner size="sm" />}
-                                Login
+                                &nbsp;Login
                             </Button>
                         </FormGroup>
                     </Form>

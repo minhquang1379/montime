@@ -5216,7 +5216,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _components_Common_NotFound_NotFound__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Common/NotFound/NotFound */ "./resources/js/components/Common/NotFound/NotFound.js");
-/* harmony import */ var _components_Guest__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Guest */ "./resources/js/components/Guest/index.js");
+/* harmony import */ var _components_Home__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Home */ "./resources/js/components/Home/index.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
@@ -5236,7 +5236,7 @@ function App() {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Switch, {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Route, {
           path: "/",
-          component: _components_Guest__WEBPACK_IMPORTED_MODULE_2__["default"]
+          component: _components_Home__WEBPACK_IMPORTED_MODULE_2__["default"]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Route, {
           path: "*",
           component: _components_Common_NotFound_NotFound__WEBPACK_IMPORTED_MODULE_1__["default"]
@@ -5259,7 +5259,8 @@ function App() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "signin": () => (/* binding */ signin)
+/* harmony export */   "signin": () => (/* binding */ signin),
+/* harmony export */   "signout": () => (/* binding */ signout)
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
@@ -5336,6 +5337,15 @@ var signin = function signin(email, password) {
       return _ref.apply(this, arguments);
     };
   }();
+};
+var signout = function signout() {
+  return function (dispatch) {
+    dispatch({
+      type: _constant_userConstant__WEBPACK_IMPORTED_MODULE_1__.USER_SIGNOUT
+    });
+    localStorage.removeItem("userInfo");
+    document.location.href = "/welcome";
+  };
 };
 
 /***/ }),
@@ -5462,6 +5472,48 @@ var store = (0,redux__WEBPACK_IMPORTED_MODULE_1__.createStore)(reducer, initialS
 
 /***/ }),
 
+/***/ "./resources/js/components/Common/Menu/index.js":
+/*!******************************************************!*\
+  !*** ./resources/js/components/Common/Menu/index.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _actions_userActions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../actions/userActions */ "./resources/js/actions/userActions.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+
+
+function Menu() {
+  var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_0__.useDispatch)();
+
+  function signoutHandler() {
+    dispatch((0,_actions_userActions__WEBPACK_IMPORTED_MODULE_1__.signout)());
+  }
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+    children: ["Menu n\xE8", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
+      to: "#signout",
+      onClick: signoutHandler,
+      children: "Signout"
+    })]
+  });
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Menu);
+
+/***/ }),
+
 /***/ "./resources/js/components/Common/MessageBox/MessageBox.js":
 /*!*****************************************************************!*\
   !*** ./resources/js/components/Common/MessageBox/MessageBox.js ***!
@@ -5526,13 +5578,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var react_toast__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-toast */ "./node_modules/react-toast/dist/react-toast.esm.js");
 /* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/dist/reactstrap.modern.js");
-/* harmony import */ var _actions_userActions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../actions/userActions */ "./resources/js/actions/userActions.js");
-/* harmony import */ var _Common_MessageBox_MessageBox__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../Common/MessageBox/MessageBox */ "./resources/js/components/Common/MessageBox/MessageBox.js");
-/* harmony import */ var _components_LoginForm__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/LoginForm */ "./resources/js/components/Guest/Login/components/LoginForm.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _actions_userActions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../actions/userActions */ "./resources/js/actions/userActions.js");
+/* harmony import */ var _Common_MessageBox_MessageBox__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../Common/MessageBox/MessageBox */ "./resources/js/components/Common/MessageBox/MessageBox.js");
+/* harmony import */ var _components_LoginForm__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/LoginForm */ "./resources/js/components/Guest/Login/components/LoginForm.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
@@ -5557,33 +5609,36 @@ function Login() {
       loading = userSignin.loading,
       error = userSignin.error;
   var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useDispatch)();
+  var history = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_6__.useHistory)();
 
   var handleSubmit = function handleSubmit(values) {
     var email = values.email,
         password = values.password;
-    dispatch((0,_actions_userActions__WEBPACK_IMPORTED_MODULE_3__.signin)(email, password));
+    dispatch((0,_actions_userActions__WEBPACK_IMPORTED_MODULE_2__.signin)(email, password));
   };
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    if (userInfo) {}
+    if (userInfo) {
+      history.push("/");
+    }
   }, [userInfo]);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_7__.Row, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_7__.Row, {
       className: "justify-content-center slide-in-left ",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_7__.Col, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_7__.Col, {
         lg: "5",
         md: "6",
         sm: "12",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_7__.Card, {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(reactstrap__WEBPACK_IMPORTED_MODULE_7__.CardBody, {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_7__.CardTitle, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_7__.Card, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(reactstrap__WEBPACK_IMPORTED_MODULE_7__.CardBody, {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_7__.CardTitle, {
               className: "text-center text-uppercase",
               tag: "h4",
               children: "Login"
-            }), error && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Common_MessageBox_MessageBox__WEBPACK_IMPORTED_MODULE_4__["default"], {
+            }), error && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Common_MessageBox_MessageBox__WEBPACK_IMPORTED_MODULE_3__["default"], {
               variant: "danger",
               children: error
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_LoginForm__WEBPACK_IMPORTED_MODULE_5__["default"], {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_LoginForm__WEBPACK_IMPORTED_MODULE_4__["default"], {
               initialValues: initialValues,
               onSubmit: handleSubmit,
               loading: loading
@@ -5591,15 +5646,15 @@ function Login() {
           })
         })
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_7__.Row, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_7__.Row, {
       className: "guest__login text-center pt-2 slide-in-left",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_7__.Col, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_7__.Col, {
         lg: "12",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
           className: "button",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Link, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Link, {
             to: "/register",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
               children: "Register"
             })
           })
@@ -5682,7 +5737,7 @@ function LoginForm(props) {
             color: "success",
             children: [loading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_5__.Spinner, {
               size: "sm"
-            }), "Login"]
+            }), "\xA0Login"]
           })
         })]
       });
@@ -5729,7 +5784,7 @@ function Register() {
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
-    children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_2__.Row, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_2__.Row, {
       className: "justify-content-center slide-in-left ",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_2__.Col, {
         lg: "5",
@@ -5951,8 +6006,7 @@ function Guest() {
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.BrowserRouter, {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Switch, {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
-            exact: true,
-            path: "/",
+            path: "/welcome",
             component: _Welcome_Welcome__WEBPACK_IMPORTED_MODULE_2__["default"]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
             path: "/login",
@@ -5968,6 +6022,50 @@ function Guest() {
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Guest);
+
+/***/ }),
+
+/***/ "./resources/js/components/Home/index.js":
+/*!***********************************************!*\
+  !*** ./resources/js/components/Home/index.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _Guest__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Guest */ "./resources/js/components/Guest/index.js");
+/* harmony import */ var _Common_Menu__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Common/Menu */ "./resources/js/components/Common/Menu/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+
+
+function Home() {
+  var userSignin = (0,react_redux__WEBPACK_IMPORTED_MODULE_0__.useSelector)(function (state) {
+    return state.userSignin;
+  });
+  var userInfo = userSignin.userInfo;
+  var history = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_5__.useHistory)();
+  (0,react__WEBPACK_IMPORTED_MODULE_3__.useEffect)(function () {
+    if (userInfo) {
+      history.push("/");
+    } else {
+      history.push("/welcome");
+    }
+  }, [userInfo]);
+  return userInfo ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Common_Menu__WEBPACK_IMPORTED_MODULE_2__["default"], {}) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Guest__WEBPACK_IMPORTED_MODULE_1__["default"], {});
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Home);
 
 /***/ }),
 
@@ -47607,415 +47705,6 @@ if (true) {
 
 
 //# sourceMappingURL=react-router.js.map
-
-
-/***/ }),
-
-/***/ "./node_modules/react-toast/dist/react-toast.esm.js":
-/*!**********************************************************!*\
-  !*** ./node_modules/react-toast/dist/react-toast.esm.js ***!
-  \**********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "ToastContainer": () => (/* binding */ ToastContainer),
-/* harmony export */   "toast": () => (/* binding */ toast)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
-
-var Success = function Success() {
-  return react__WEBPACK_IMPORTED_MODULE_0__.createElement("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    width: "16",
-    height: "16",
-    viewBox: "0 0 16 16"
-  }, react__WEBPACK_IMPORTED_MODULE_0__.createElement("g", {
-    transform: "translate(.077 .077)"
-  }, react__WEBPACK_IMPORTED_MODULE_0__.createElement("g", null, react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
-    fill: "none",
-    stroke: "#fff",
-    strokeLinecap: "round",
-    strokeLinejoin: "round",
-    strokeWidth: "1.5",
-    d: "M3.719 7.884L6.235 10.4l3.032-3.032 2.774-2.774"
-  }))));
-};
-
-var Success$1 = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.memo(Success);
-
-var Close = function Close() {
-  return react__WEBPACK_IMPORTED_MODULE_0__.createElement("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    width: "16",
-    height: "16",
-    viewBox: "0 0 16 16"
-  }, react__WEBPACK_IMPORTED_MODULE_0__.createElement("g", {
-    transform: "translate(.077 .077)"
-  }, react__WEBPACK_IMPORTED_MODULE_0__.createElement("g", null, react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
-    fill: "#fff",
-    d: "M10.915 9.98l2.853-2.846a.666.666 0 00-.942-.942L9.979 9.044 7.133 6.191a.666.666 0 00-.942.942L9.044 9.98 6.19 12.826a.666.666 0 10.942.942l2.846-2.853 2.846 2.853a.666.666 0 10.942-.942z",
-    transform: "translate(-2.017 -2.018)"
-  }))));
-};
-
-var Close$1 = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.memo(Close);
-
-var Info = function Info() {
-  return react__WEBPACK_IMPORTED_MODULE_0__.createElement("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    width: "16",
-    height: "16",
-    viewBox: "0 0 16 16"
-  }, react__WEBPACK_IMPORTED_MODULE_0__.createElement("g", {
-    transform: "translate(-1533 -39)"
-  }, react__WEBPACK_IMPORTED_MODULE_0__.createElement("g", {
-    fill: "#fff",
-    transform: "translate(-.358 -1.639)"
-  }, react__WEBPACK_IMPORTED_MODULE_0__.createElement("circle", {
-    cx: "1.134",
-    cy: "1.134",
-    r: "1.134",
-    transform: "rotate(180 771.246 22.823)"
-  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
-    d: "M1 0a1 1 0 00-1 1v5a1 1 0 002 0V1a1 1 0 00-1-1z",
-    transform: "rotate(180 771.17 26.882)"
-  }))));
-};
-
-var Info$1 = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.memo(Info);
-
-var Warning = function Warning() {
-  return react__WEBPACK_IMPORTED_MODULE_0__.createElement("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    width: "16",
-    height: "16",
-    viewBox: "0 0 16 16"
-  }, react__WEBPACK_IMPORTED_MODULE_0__.createElement("g", {
-    transform: "rotate(180 774.5 27.5)"
-  }, react__WEBPACK_IMPORTED_MODULE_0__.createElement("g", {
-    fill: "#fff",
-    transform: "translate(-.358 -1.639)"
-  }, react__WEBPACK_IMPORTED_MODULE_0__.createElement("circle", {
-    cx: "1.134",
-    cy: "1.134",
-    r: "1.134",
-    transform: "rotate(180 771.246 22.823)"
-  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
-    d: "M1 0a1 1 0 00-1 1v5a1 1 0 002 0V1a1 1 0 00-1-1z",
-    transform: "rotate(180 771.17 26.882)"
-  }))));
-};
-
-var Warning$1 = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.memo(Warning);
-
-var toastIcon = function toastIcon(_ref) {
-  var type = _ref.type;
-
-  switch (type) {
-    case 'error':
-      return react__WEBPACK_IMPORTED_MODULE_0__.createElement(Close$1, null);
-
-    case 'info':
-      return react__WEBPACK_IMPORTED_MODULE_0__.createElement(Info$1, null);
-
-    case 'warning':
-      return react__WEBPACK_IMPORTED_MODULE_0__.createElement(Warning$1, null);
-
-    default:
-      return react__WEBPACK_IMPORTED_MODULE_0__.createElement(Success$1, null);
-  }
-};
-
-function styleInject(css, ref) {
-  if ( ref === void 0 ) ref = {};
-  var insertAt = ref.insertAt;
-
-  if (!css || typeof document === 'undefined') { return; }
-
-  var head = document.head || document.getElementsByTagName('head')[0];
-  var style = document.createElement('style');
-  style.type = 'text/css';
-
-  if (insertAt === 'top') {
-    if (head.firstChild) {
-      head.insertBefore(style, head.firstChild);
-    } else {
-      head.appendChild(style);
-    }
-  } else {
-    head.appendChild(style);
-  }
-
-  if (style.styleSheet) {
-    style.styleSheet.cssText = css;
-  } else {
-    style.appendChild(document.createTextNode(css));
-  }
-}
-
-var css_248z = ":root {\n  --toast-default: #8b1dd0;\n  --toast-success: #27d0b2;\n  --toast-error: #c52965;\n  --toast-info: #004eff;\n  --toast-warning: #d0761d;\n  --toast-black: #221d26;\n  --toast-white: #ffffff;\n}\n\n.toast {\n  padding: 15px;\n  min-width: 300px;\n  max-width: 400px;\n  color: var(--toast-white);\n  display: flex;\n  align-items: flex-start;\n  line-height: 1.6;\n  font-size: 14px;\n  border-radius: 15px;\n}\n\n.toast.default {\n  background-color: var(--toast-default);\n}\n\n.toast.success {\n  background-color: var(--toast-success);\n}\n\n.toast.error {\n  background-color: var(--toast-error);\n}\n\n.toast.info {\n  background-color: var(--toast-info);\n}\n\n.toast.warning {\n  background-color: var(--toast-warning);\n}\n\n.toast .content {\n  flex: 1;\n}\n\n.toast .content p {\n  padding: 0;\n  margin: 0;\n}\n\n.toast .close {\n  margin-left: 10px;\n  width: 22px;\n  height: 22px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background-color: rgba(255, 255, 255, 0);\n  transition: all 100ms ease-in-out;\n  border-radius: 8px;\n  cursor: pointer;\n}\n\n.toast .close:hover {\n  background-color: rgba(255, 255, 255, 0.2);\n}\n\n.toast .icon {\n  margin-right: 10px;\n  width: 22px;\n  height: 22px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background-color: rgba(255, 255, 255, 0.2);\n  border-radius: 8px;\n}\n";
-styleInject(css_248z);
-
-var Toast = function Toast(_ref) {
-  var id = _ref.id,
-      content = _ref.content,
-      type = _ref.type,
-      _ref$config = _ref.config;
-  _ref$config = _ref$config === void 0 ? {} : _ref$config;
-  var backgroundColor = _ref$config.backgroundColor,
-      color = _ref$config.color,
-      onClose = _ref.onClose;
-  return react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: "toast " + type,
-    style: {
-      backgroundColor: backgroundColor
-    }
-  }, react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: "icon"
-  }, toastIcon({
-    type: type
-  })), react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: "content"
-  }, react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
-    style: {
-      color: color
-    }
-  }, content)), react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: "close",
-    onClick: function onClick() {
-      return onClose(id);
-    }
-  }, react__WEBPACK_IMPORTED_MODULE_0__.createElement(Close$1, null)));
-};
-
-function _extends() {
-  _extends = Object.assign || function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
-
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
-    }
-
-    return target;
-  };
-
-  return _extends.apply(this, arguments);
-}
-
-var initialState = {
-  toasts: []
-};
-
-var toastReducer = function toastReducer(state, action) {
-  switch (action.type) {
-    case 'ADD':
-      return _extends({}, state, {
-        toasts: [].concat(state.toasts, [action.toast])
-      });
-
-    case 'REMOVE':
-      {
-        return _extends({}, state, {
-          toasts: [].concat(state.toasts.filter(function (toast) {
-            return toast.id !== action.id;
-          }))
-        });
-      }
-
-    case 'REMOVE_ALL':
-      return _extends({}, state, {
-        toasts: []
-      });
-
-    default:
-      throw new Error();
-  }
-};
-
-var useToast = function useToast() {
-  var _useReducer = (0,react__WEBPACK_IMPORTED_MODULE_0__.useReducer)(toastReducer, initialState),
-      state = _useReducer[0],
-      dispatch = _useReducer[1];
-
-  return _extends({}, state, {
-    dispatch: dispatch
-  });
-};
-
-var emitter = /*#__PURE__*/function () {
-  var events = /*#__PURE__*/new Map();
-  return {
-    /**
-     * Register an event handler for the given event name.
-     * @param {Events} event Type of event to listen for
-     * @param {Handler} callback Handler to call in response to given event
-     */
-    on: function on(event, callback) {
-      if (!events.has(event)) events.set(event, []);
-      events.get(event).push(callback);
-    },
-
-    /**
-     * Invoke all handlers for the given event name.
-     * @param {Events} event The event type to invoke
-     * @param {Any} args Any value passed to each handler
-     */
-    emit: function emit(event, args) {
-      if (!events.has(event)) return;
-      events.get(event).forEach(function (callback) {
-        return callback(args);
-      });
-    },
-
-    /** Remove all events. */
-    off: function off() {
-      events.clear();
-    }
-  };
-}();
-
-var toaster = function toaster(_ref) {
-  var content = _ref.content,
-      type = _ref.type,
-      config = _ref.config;
-  return {
-    id: Math.random().toString(36).substr(2, 10),
-    content: content,
-    type: type,
-    config: config
-  };
-};
-
-var Events;
-
-(function (Events) {
-  Events["SHOW"] = "show";
-  Events["HIDE"] = "hide";
-  Events["HIDE_ALL"] = "hideAll";
-})(Events || (Events = {}));
-
-var toastDispatcher = function toastDispatcher(_ref) {
-  var dispatch = _ref.dispatch,
-      delay = _ref.delay;
-  emitter.on(Events.SHOW, function (toast) {
-    dispatch({
-      type: 'ADD',
-      toast: toast
-    });
-    if (delay) setTimeout(function () {
-      dispatch({
-        type: 'REMOVE',
-        id: toast.id
-      });
-    }, delay);
-  });
-  emitter.on(Events.HIDE, function (id) {
-    return dispatch({
-      type: 'REMOVE',
-      id: id
-    });
-  });
-  emitter.on(Events.HIDE_ALL, function () {
-    return dispatch({
-      type: 'REMOVE_ALL'
-    });
-  });
-};
-
-var css_248z$1 = ".toastContainer {\n  overflow: hidden;\n  overflow-x: auto;\n  display: grid;\n  grid-gap: 20px;\n  position: fixed;\n  user-select: none;\n}\n\n.top-left {\n  top: 20px;\n  left: 20px;\n}\n\n.top-center {\n  top: 20px;\n  left: 50%;\n  transform: translate(-50%, 0);\n}\n\n.top-right {\n  top: 20px;\n  right: 20px;\n}\n\n.bottom-left {\n  bottom: 20px;\n  left: 20px;\n}\n\n.bottom-center {\n  bottom: 20px;\n  left: 50%;\n  transform: translate(-50%, 0);\n}\n\n.bottom-right {\n  bottom: 20px;\n  right: 20px;\n}\n";
-styleInject(css_248z$1);
-
-var ToastContainer = function ToastContainer(_ref) {
-  var _ref$position = _ref.position,
-      position = _ref$position === void 0 ? 'bottom-left' : _ref$position,
-      delay = _ref.delay;
-
-  var _useToast = useToast(),
-      toasts = _useToast.toasts,
-      dispatch = _useToast.dispatch;
-
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    toastDispatcher({
-      dispatch: dispatch,
-      delay: delay
-    });
-    return function () {
-      emitter.off();
-    };
-  }, [dispatch, delay]);
-  var onClose = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(function (id) {
-    emitter.emit(Events.HIDE, id);
-  }, []);
-  return react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: "toastContainer " + position
-  }, toasts.map(function (toast) {
-    return react__WEBPACK_IMPORTED_MODULE_0__.createElement(Toast, Object.assign({
-      key: toast.id
-    }, toast, {
-      onClose: onClose
-    }));
-  }));
-};
-
-var applyToast = function applyToast(_ref) {
-  var toast = _extends({}, _ref);
-
-  return emitter.emit(Events.SHOW, toaster(_extends({}, toast)));
-};
-
-var toast = function toast(content, config) {
-  return applyToast({
-    content: content,
-    type: 'default',
-    config: config
-  });
-};
-
-toast.success = function (content, config) {
-  return applyToast({
-    content: content,
-    type: 'success',
-    config: config
-  });
-};
-
-toast.error = function (content, config) {
-  return applyToast({
-    content: content,
-    type: 'error',
-    config: config
-  });
-};
-
-toast.info = function (content, config) {
-  return applyToast({
-    content: content,
-    type: 'info',
-    config: config
-  });
-};
-
-toast.warn = function (content, config) {
-  return applyToast({
-    content: content,
-    type: 'warning',
-    config: config
-  });
-};
-
-toast.hideAll = function () {
-  return emitter.emit(Events.HIDE_ALL);
-};
-
-
-//# sourceMappingURL=react-toast.esm.js.map
 
 
 /***/ }),

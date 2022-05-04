@@ -17,7 +17,7 @@ function Guest() {
                 </Row>
                 <BrowserRouter>
                     <Switch>
-                        <Route exact path="/" component={Welcome} />
+                        <Route path="/welcome" component={Welcome} />
                         <Route path="/login" component={Login} />
                         <Route path="/register" component={Register} />
                     </Switch>

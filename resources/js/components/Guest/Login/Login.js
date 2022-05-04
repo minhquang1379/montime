@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { toast } from "react-toast";
 import { Card, CardBody, CardTitle, Col, Row } from "reactstrap";
 import { signin } from "../../../actions/userActions";
 import MessageBox from "../../Common/MessageBox/MessageBox";
@@ -17,12 +17,15 @@ function Login() {
     const { userInfo, loading, error } = userSignin;
     const dispatch = useDispatch();
 
+    const history = useHistory();
+
     const handleSubmit = (values) => {
         const { email, password } = values;
         dispatch(signin(email, password));
     };
     useEffect(() => {
         if (userInfo) {
+            history.push("/");
         }
     }, [userInfo]);
     return (

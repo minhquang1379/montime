@@ -16,7 +16,6 @@ function Register() {
 
     return (
         <>
-            {" "}
             <Row className="justify-content-center slide-in-left ">
                 <Col lg="5" md="6" sm="12">
                     <Card>
